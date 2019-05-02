@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %} My Finance {% endblock title %}</title>
+    <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="jumbotron jumbotron-fluid bg-danger text-white text-center">
+        <div class="container">
+            <h1 class="display-3">Personal Finance</h1>
+        </div>
+    </div>
+    <nav class="navbar navbar-light d-flex justify-content-center">
+        <form class="form-inline">
+            <a href="/total_expenses"><button class="btn btn-outline-success" type="button">My statues</button></a>
+            <a href="/add"><button class="btn btn-outline-success" type="button">Add expense</button></a>
+            <a href="/"><button class="btn btn-sm btn-outline-secondary" type="button">
+                    Home</button></a>
+        </form>
+    </nav>
+
+    {% block page_content %}
+        <span>
+            <p class="pt-5 text-center lead">You have spent:</p>
+        </span>
+
+        <div class="container d-flex justify-content-center">
+            <p class="display-4">$ {{ expenses | sum(attribute='cost') }} </p>
+        </div>
+        <div class="container d-flex justify-content-center">
+            <a href="/show_expenses"><button class="btn btn-outline-success" type="button">
+                    Show expenses</button></a>
+        </div>
+
+    {% endblock page_content %}
+</body>
+</html>

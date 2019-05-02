@@ -1,0 +1,21 @@
+{% extends "total_expenses.html" %}
+
+{% block title %} Add category {% endblock title %}
+
+{% block page_content %}
+    <div class="container d-flex justify-content-center">
+        <form action="/category_added" method="post">
+            <h6>Add new category: </h6><input name="category">
+            <button type="submit" class="btn btn-outline-success">Add</button><br>
+            <p class="lead">Existing categories:</p>
+            {% for category in categories %}
+                {{ category.category }}
+                <button type="submit" class="btn btn-outline-success">
+                <a href="/category/{{ category.key.id() }}/edit">Edit</a></button>
+                <button type="submit" class="btn btn-sm btn-outline-secondary">
+                <a href="/category/{{ category.key.id() }}/delete">Delete</a></button>
+                <br>
+            {% endfor %}
+        </form>
+    </div>
+{% endblock page_content %}

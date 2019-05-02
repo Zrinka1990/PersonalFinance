@@ -1,0 +1,12 @@
+{% extends "total_expenses.html" %}
+
+{% block page_content %}
+   <div class="container ">
+      <p class="lead pt-4 pb-2 d-flex justify-content-center">You have added an expense:</p>
+      <p class="d-flex justify-content-center">Details: {{ new_expense.description }} </p>
+      <p class="d-flex justify-content-center">$ {{ new_expense.cost }} </p>
+      <p class="d-flex justify-content-center"> {{ new_expense.date }} </p>
+      <p class="d-flex justify-content-center">Category: {{ new_expense.category }} </p>
+      <p class="d-flex justify-content-center">Comment: {{ new_expense.comment }} </p>
+   </div>
+{% endblock page_content %}

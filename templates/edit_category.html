@@ -1,0 +1,9 @@
+{% extends "total_expenses.html" %}
+
+{% block page_content %}
+    <h3>Edit category:</h3>
+    <form action="/category/{{ category.key.id() }}/edit" method="post">
+        <input name="category" value="{{ category.category }}">
+        <button type="submit">Edit</button>
+    </form>
+{% endblock page_content %}

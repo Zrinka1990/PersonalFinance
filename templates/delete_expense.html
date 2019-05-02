@@ -1,0 +1,10 @@
+{% extends "total_expenses.html" %}
+
+{% block page_content %}
+    <h1>Do you really want to delete this message?</h1>
+
+    <form action="/expense/{{ expense.key.id() }}/delete" method="post">
+        <button type="submit">YES, delete!</button>
+        <button><a href="/show_expenses">NO</a></button>
+    </form>
+{% endblock page_content %}

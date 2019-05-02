@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>My Finance</title>
+    <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+    <div class="jumbotron jumbotron-fluid bg-danger text-white text-center">
+        <div class="container">
+            <h1 class="display-2">Welcome to Personal Finance</h1>
+            <p class="lead">Track your expenses and manage your money easily.</p>
+        </div>
+    </div>
+
+    <div class="container-fluid text-center">
+    {% if logged_in %}
+        <h1 class="lead text-left">Hello, {{ user.nickname() }}!</h1>
+        <nav class="navbar navbar-light d-flex justify-content-center">
+            <form class="form-inline">
+                <a href="/total_expenses"><button class="btn btn-outline-success" type="button">My statues</button></a>
+                <a href="/add"><button class="btn btn-outline-success" type="button">Add expense</button></a>
+                <a href="{{ logout_url }}"><button class="btn btn-sm btn-outline-secondary" type="button">
+                    Log Out</button></a>
+            </form>
+        </nav>
+    {% else %}
+
+        <p class="lead">Please log in here: </p>
+        <a href="{{ login_url }}"> <button type="button" class="btn btn-outline-success">Log In </button> </a>
+
+    {% endif %}
+
+    </div>
+
+</body>
+</html>

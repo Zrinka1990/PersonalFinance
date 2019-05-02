@@ -1,0 +1,25 @@
+{% extends "total_expenses.html" %}
+
+{% block title %} Add category {% endblock title %}
+
+{% block page_content %}
+
+
+    <h3>Edit expense</h3>
+    <form action="/expense/{{ expense.key.id() }}/edit" method="post">
+        <h6>Description: </h6><input name="description" value="{{ expense.description }}">
+        <h6>Expense: </h6><input name="cost" type="number" value="{{ expense.cost }}"><h6> $</h6>
+        <h6>Category: </h6>
+        <select name="category">
+
+            {% for category in categories %}
+                <option value="{{ category.category }}">{{ category.category }}</option>
+            {% endfor %}
+        </select>
+        <a href="/add_category">Add category</a>
+        <h6>Date</h6>
+        <input name="date" type="date" value="{{ expense.date }}">
+        <h6>Details: </h6><input name="comment" value="{{ expense.comment }}">
+        <button type="submit">Add</button><br>
+    </form>
+{% endblock page_content %}

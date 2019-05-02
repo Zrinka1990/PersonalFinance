@@ -1,0 +1,20 @@
+{% extends "total_expenses.html" %}
+
+{% block page_content %}
+
+        {% for expense in expenses %}
+        <div class="container">
+            <p class="d-flex justify-content-center "> Description: {{ expense.description }} </p>
+            <p class="d-flex justify-content-center"> Cost: {{ expense.cost }} $ </p>
+            <p class="d-flex justify-content-center"> Category: {{ expense.category }} </p>
+            <p class="d-flex justify-content-center"> {{ weekdays[expense.date.weekday()] }}, {{ expense.date.day }}
+                {{ months[expense.date.month - 1] }}, {{ expense.date.year }} </p>
+            <p class="d-flex justify-content-center"> Comment: {{ expense.comment }} </p>
+            <span class="d-flex justify-content-center">
+            <button class="btn btn-outline-success"><a href="/expense/{{ expense.key.id() }}/edit">Edit</a></button><button class="btn btn-sm btn-outline-secondary"><a href="/expense/{{ expense.key.id() }}/delete">
+                 Delete</a></button>
+            </span>
+        </div>
+        {% endfor %}
+
+{% endblock page_content %}

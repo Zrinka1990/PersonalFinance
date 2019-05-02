@@ -1,0 +1,36 @@
+{% extends "total_expenses.html" %}
+
+{% block title %} Add category {% endblock title %}
+
+{% block page_content %}
+
+        <div class="container d-flex justify-content-center">
+            <h3 class="lead pt-5 pb-2">Add expense</h3>
+        </div>
+        <div class="container d-flex justify-content-center">
+        <form action="/result" method="post">
+            <h6 class="lead d-flex justify-content-center pt-4 pb-2">Description: </h6><input name="description">
+            <h6 class="lead d-flex justify-content-center pt-4 pb-2">Expense: ($)</h6><input name="expense" type="number" step="0.01">
+            <h6 class="lead d-flex justify-content-center pt-4 pb-2">Category: </h6>
+            <select name="category">
+
+                {% for category in categories %}
+                    <option value="{{ category.category }}">{{ category.category }}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <span class="d-flex justify-content-center pt-3">
+            <a href="/add_category"><button  class="btn btn-outline-success d-flex justify-content-center"
+                                            type="button"> Add new category</button></a>
+            </span>
+            <h6 class="lead d-flex justify-content-center pt-4 pb-2">Date: </h6>
+            <input name="date" type="date">
+            <h6 class="d-flex justify-content-center pt-4 pb-2 lead">Details: </h6><input name="comment">
+            <br>
+            <span class="d-flex justify-content-center pt-2">
+            <button type="submit" class="btn btn-outline-success">Add</button><br>
+            </span>
+        </form>
+        </div>
+
+{% endblock page_content %}
